@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FoodOrderingApp.ViewModels"
+             x:Class="FoodOrderingApp.Views.LoginViewPage"
+             Visual="Material">
+    <!--we have added binding context and binded view model LoginViewModel and this view-->
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="20" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" VerticalOptions="Center">
+                    <Image Source="FruitPlate.jpg" WidthRequest="100" HeightRequest="200"/>
+                    <Label Text="Food Truck" FontFamily="cabinsketchbold" FontSize="30" TextColor="Purple" HorizontalOptions="Center"/>
+                    <StackLayout Grid.Row="1" Spacing="10">
+                        <Entry Placeholder="Enter Username" Text="{Binding Username}"/>
+                        <Entry Placeholder="Enter Password" Text="{Binding Password}" IsPassword="True"/>
+                        <Button Text="login" HorizontalOptions="Center" TextColor="White" BackgroundColor="Purple" WidthRequest="200" HeightRequest="60" CornerRadius="20" Command="{Binding LoginCommand}"/>
+                        <Label Text="New Users:"/>
+                        <Button Text="Register" HorizontalOptions="Center" BackgroundColor="DarkOrange" TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20" Command="{Binding RegisterCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
