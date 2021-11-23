@@ -46,6 +46,7 @@ namespace FoodOrderingApp.Services
                 await client.Child("Users").PostAsync(new User()
                 {
                     Username = uname,
+                   
                     Password = passwd
                 });
 
@@ -62,6 +63,7 @@ namespace FoodOrderingApp.Services
         {
             var user = (await client.Child("Users").OnceAsync<User>()).Where(u => u.Object.Username == uname).Where(u => u.Object.Password == passwd).FirstOrDefault();
 
+            
             return (user != null);
         }
         #endregion
